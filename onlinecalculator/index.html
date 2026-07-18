@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/jpeg" href="/photo2.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abinanth A | Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+      .calculator-section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 6rem 2rem 2rem;
+      }
+      .calculator {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 2rem;
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        width: 100%;
+        max-width: 350px;
+        backdrop-filter: blur(10px);
+      }
+      .calc-display {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem 1rem;
+        margin-bottom: 1.5rem;
+        text-align: right;
+        font-size: 2.5rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .calc-buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+      .calc-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1rem 0;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        font-family: inherit;
+      }
+      .calc-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+      .calc-btn:active {
+        transform: translateY(0);
+      }
+      .calc-btn.operator {
+        background: rgba(59, 130, 246, 0.1);
+        color: var(--accent-primary);
+        border-color: rgba(59, 130, 246, 0.3);
+      }
+      .calc-btn.operator:hover {
+        background: rgba(59, 130, 246, 0.2);
+      }
+      .calc-btn.equals {
+        background: var(--accent-primary);
+        color: white;
+        grid-column: span 2;
+        border-color: var(--accent-primary);
+      }
+      .calc-btn.equals:hover {
+        background: transparent;
+        box-shadow: 0 0 15px var(--accent-glow);
+      }
+      .calc-btn.clear {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+        border-color: rgba(239, 68, 68, 0.3);
+      }
+      .calc-btn.clear:hover {
+        background: rgba(239, 68, 68, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Elements -->
+    <div class="bg-gradient-1"></div>
+    <div class="bg-gradient-2"></div>
+
+    <!-- Navigation -->
+    <header class="header">
+      <nav class="nav-container">
+        <a href="/" class="logo">Abinanth</a>
+        <div class="nav-links">
+          <a href="/" class="nav-link">Home</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="calculator-section fade-in-up">
+        <h1 class="section-title" style="margin-bottom: 2rem;">Online Calculator</h1>
+        <div class="calculator">
+          <div class="calc-display" id="display">0</div>
+          <div class="calc-buttons">
+            <button class="calc-btn clear" onclick="clearDisplay()">C</button>
+            <button class="calc-btn operator" onclick="appendOperator('(')">(</button>
+            <button class="calc-btn operator" onclick="appendOperator(')')">)</button>
+            <button class="calc-btn operator" onclick="appendOperator('/')">&divide;</button>
+            
+            <button class="calc-btn" onclick="appendNumber('7')">7</button>
+            <button class="calc-btn" onclick="appendNumber('8')">8</button>
+            <button class="calc-btn" onclick="appendNumber('9')">9</button>
+            <button class="calc-btn operator" onclick="appendOperator('*')">&times;</button>
+            
+            <button class="calc-btn" onclick="appendNumber('4')">4</button>
+            <button class="calc-btn" onclick="appendNumber('5')">5</button>
+            <button class="calc-btn" onclick="appendNumber('6')">6</button>
+            <button class="calc-btn operator" onclick="appendOperator('-')">-</button>
+            
+            <button class="calc-btn" onclick="appendNumber('1')">1</button>
+            <button class="calc-btn" onclick="appendNumber('2')">2</button>
+            <button class="calc-btn" onclick="appendNumber('3')">3</button>
+            <button class="calc-btn operator" onclick="appendOperator('+')">+</button>
+            
+            <button class="calc-btn" onclick="appendNumber('0')">0</button>
+            <button class="calc-btn" onclick="appendNumber('.')">.</button>
+            <button class="calc-btn equals" onclick="calculate()">=</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">Abinanth A</div>
+        <p>&copy; 2026 Abinanth A. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="../main.js"></script>
+    <script>
+      let currentDisplay = '0';
+      const displayElement = document.getElementById('display');
+
+      function updateDisplay() {
+        displayElement.innerText = currentDisplay;
+      }
+
+      function appendNumber(num) {
+        if (currentDisplay === '0' && num !== '.') {
+          currentDisplay = num;
+        } else {
+          currentDisplay += num;
+        }
+        updateDisplay();
+      }
+
+      function appendOperator(op) {
+        // Simple validation to prevent multiple operators
+        const lastChar = currentDisplay.slice(-1);
+        if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(op)) {
+          currentDisplay = currentDisplay.slice(0, -1) + op;
+        } else {
+          currentDisplay += op;
+        }
+        updateDisplay();
+      }
+
+      function clearDisplay() {
+        currentDisplay = '0';
+        updateDisplay();
+      }
+
+      function calculate() {
+        try {
+          // Using Function instead of eval for slight safety, though still a basic calc
+          const result = new Function('return ' + currentDisplay)();
+          
+          if (!isFinite(result)) {
+            currentDisplay = 'Error';
+          } else {
+            // Round to avoid floating point issues
+            currentDisplay = String(Math.round(result * 100000000) / 100000000);
+          }
+        } catch (e) {
+          currentDisplay = 'Error';
+        }
+        updateDisplay();
+      }
+    </script>
+  </body>
+</html>

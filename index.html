@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/jpeg" href="/profile.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abinanth A | Home</title>
+    <meta
+      name="description"
+      content="Portfolio of Abinanth A - Tech lover, programmer, and traveler, combining innovation with global exploration."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="bg-gradient-1"></div>
+    <div class="bg-gradient-2"></div>
+
+    <header class="header">
+      <nav class="nav-container">
+        <a href="#home-section" class="logo">Abinanth</a>
+        <div class="nav-links">
+          <a href="#home-section" class="nav-link active">Home</a>
+          <a href="#project-section" class="nav-link">Projects</a>
+          <a href="#contact-section" class="nav-link btn-contact">Contact me</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home-section" class="hero-section fade-in-up">
+        <div class="hero-content">
+          <h1 class="hero-title">Abinanth A</h1>
+          <p class="hero-subtitle">
+            Tech lover, programmer, and traveler, combining innovation with global exploration.
+          </p>
+          <blockquote class="hero-quote">
+            "If you read a book you gain knowledge, if you read world as a book then you gain
+            experience"
+          </blockquote>
+          <div class="hero-actions">
+            <a href="#project-section" class="btn btn-primary">View Projects</a>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <div class="hero-image-container">
+            <img
+              src="/profile.jpg"
+              alt="Abinanth A in Kashmir"
+              class="hero-image"
+              id="profile-img"
+            />
+            <div class="image-glow"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="project-section" class="section fade-in-up">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+          <a href="/logtrixproject/" class="project-card">
+            <div class="project-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 7h11v8H3z"></path>
+                <path d="M14 10h3l3 3v2h-6z"></path>
+                <circle cx="7.5" cy="17.5" r="1.5"></circle>
+                <circle cx="17.5" cy="17.5" r="1.5"></circle>
+                <path d="M5 17.5h1"></path>
+                <path d="M14 17.5h2"></path>
+                <path d="M14 12h4"></path>
+              </svg>
+            </div>
+            <div class="project-info">
+              <h3>Logtrix</h3>
+              <p>
+                A streamlined mobile app to digitize trip logs, track fuel expenses, and automate
+                earnings calculations.
+              </p>
+              <span class="read-more">Click Here &rarr;</span>
+            </div>
+          </a>
+
+          <a href="/onlinecalculator/" class="project-card">
+            <div class="project-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                <line x1="8" y1="6" x2="16" y2="6"></line>
+                <line x1="16" y1="14" x2="16" y2="14.01"></line>
+                <line x1="12" y1="14" x2="12" y2="14.01"></line>
+                <line x1="8" y1="14" x2="8" y2="14.01"></line>
+                <line x1="16" y1="18" x2="16" y2="18.01"></line>
+                <line x1="12" y1="18" x2="12" y2="18.01"></line>
+                <line x1="8" y1="18" x2="8" y2="18.01"></line>
+                <line x1="16" y1="10" x2="16" y2="10.01"></line>
+                <line x1="12" y1="10" x2="12" y2="10.01"></line>
+                <line x1="8" y1="10" x2="8" y2="10.01"></line>
+              </svg>
+            </div>
+            <div class="project-info">
+              <h3>Online Calculator</h3>
+              <p>A minimalist web-based calculator featuring a dynamic UI and smooth user experience.</p>
+              <span class="read-more">Click Here &rarr;</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="contact-section" class="section fade-in-up">
+        <div class="contact-container">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="contact-subtitle">
+            Interested in collaborating or just want to say hi? I'd love to hear from you!
+          </p>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder="Your message..."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Send via Email</button>
+          </form>
+          <div class="contact-direct fade-in-up">
+            <a class="direct-email" href="mailto:abinanthaex@gmail.com">abinanthaex@gmail.com</a>
+            <div class="social-links" aria-label="Social links">
+              <a
+                class="social-link"
+                href="https://github.com/Abinanth-A"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 .5C5.65.5.98 5.35.98 11.78c0 4.98 3.15 9.2 7.52 10.49.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.04-3.06.68-3.71-1.33-3.71-1.33-.5-1.31-1.23-1.66-1.23-1.66-1-.7.08-.69.08-.69 1.11.08 1.7 1.17 1.7 1.17.99 1.73 2.59 1.23 3.22.94.1-.73.39-1.23.7-1.51-2.44-.28-5.01-1.25-5.01-5.55 0-1.23.43-2.23 1.14-3.02-.11-.28-.49-1.43.11-2.98 0 0 .93-.3 3.05 1.15.88-.25 1.83-.37 2.77-.38.94.01 1.89.13 2.78.38 2.11-1.45 3.04-1.15 3.04-1.15.6 1.55.22 2.7.11 2.98.71.79 1.14 1.79 1.14 3.02 0 4.31-2.57 5.26-5.02 5.54.4.35.75 1.03.75 2.08 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.76.53 4.36-1.29 7.51-5.51 7.51-10.49C23.02 5.35 18.35.5 12 .5Z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                class="social-link"
+                href="https://www.instagram.com/abinanth.4/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram profile"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">Abinanth A</div>
+        <p>&copy; 2026 Abinanth A. All rights reserved.</p>
+        <p class="powered-by" style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8;">
+          Powered by <a href="https://avorawebstudio.indevs.in" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; font-weight: 500;">Avorawebstudios</a>
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
