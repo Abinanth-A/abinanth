@@ -59,10 +59,8 @@ window.addEventListener('scroll', () => {
   // Header background on scroll
   const header = document.querySelector('.header');
   if (scrollY > 50) {
-    header.style.background = 'rgba(17, 24, 39, 0.9)';
-    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+    header.style.boxShadow = '8px 8px 0px #000';
   } else {
-    header.style.background = 'rgba(17, 24, 39, 0.7)';
     header.style.boxShadow = 'none';
   }
 });
@@ -116,3 +114,31 @@ document.querySelectorAll('.contact-form').forEach(form => {
     }
   });
 });
+
+// Theme Toggle Logic
+const themeToggleBtn = document.getElementById('theme-toggle');
+const moonIcon = document.querySelector('.moon-icon');
+const sunIcon = document.querySelector('.sun-icon');
+
+const currentTheme = localStorage.getItem('theme') || 'light';
+if (currentTheme === 'dark') {
+  document.body.classList.add('dark-theme');
+  moonIcon.style.display = 'none';
+  sunIcon.style.display = 'block';
+}
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    
+    if (document.body.classList.contains('dark-theme')) {
+      localStorage.setItem('theme', 'dark');
+      moonIcon.style.display = 'none';
+      sunIcon.style.display = 'block';
+    } else {
+      localStorage.setItem('theme', 'light');
+      moonIcon.style.display = 'block';
+      sunIcon.style.display = 'none';
+    }
+  });
+}
