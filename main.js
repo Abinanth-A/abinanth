@@ -59,9 +59,9 @@ window.addEventListener('scroll', () => {
   // Header background on scroll
   const header = document.querySelector('.header');
   if (scrollY > 50) {
-    header.style.boxShadow = '8px 8px 0px #000';
+    header.classList.add('header--scrolled');
   } else {
-    header.style.boxShadow = 'none';
+    header.classList.remove('header--scrolled');
   }
 });
 
@@ -142,3 +142,4 @@ if (themeToggleBtn) {
     }
   });
 }
+
