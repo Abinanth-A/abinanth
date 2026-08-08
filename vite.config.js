@@ -9,7 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        logtrixproject: resolve(__dirname, 'logtrixproject/index.html'),
+        logtrix: resolve(__dirname, 'logtrix.html'),
         onlinecalculator: resolve(__dirname, 'onlinecalculator/index.html'),
         werkzatic: resolve(__dirname, 'werkzatic.html')
       }
