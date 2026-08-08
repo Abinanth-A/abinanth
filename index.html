@@ -1,380 +1,266 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logtrix | High-performance logistics app</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://cdn.jsdelivr.net/npm/lucide@1.25.0/dist/umd/lucide.min.js"></script>
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1B19' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 17h4V5H2v12h3'/%3E%3Cpath d='M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5'/%3E%3Cpath d='M14 17h1'/%3E%3Ccircle cx='7.5' cy='17.5' r='2.5'/%3E%3Ccircle cx='17.5' cy='17.5' r='2.5'/%3E%3C/svg%3E">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Link to the main site's style.css for exact theme tokens -->
-    <link rel="stylesheet" href="../style.css">
-    <!-- Custom CSS for logtrix specific overrides -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Outfit', 'sans-serif'],
-            },
-            colors: {
-              ash: 'var(--bg-ash)',
-              secondary: 'var(--bg-secondary)',
-              graphite: 'var(--text-graphite)',
-              fog: 'var(--text-fog)',
-              inverse: 'var(--text-inverse)',
-              accent: {
-                1: 'var(--accent-1)',
-                2: 'var(--accent-2)',
-                3: 'var(--accent-3)',
-                4: 'var(--accent-4)',
-              },
-            },
-            boxShadow: {
-              'hard': 'var(--shadow-hard)',
-              'hard-hover': 'var(--shadow-hard-hover)',
-            },
-            borderWidth: {
-              '2': '2px',
-              '4': '4px',
-            }
-          }
-        }
-      }
-    </script>
-</head>
-<body class="bg-ash text-graphite font-sans antialiased overflow-x-hidden selection:bg-accent-1 selection:text-inverse">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/jpeg" href="/profile.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abinanth A | Home</title>
+    <meta
+      name="description"
+      content="Portfolio of Abinanth A - Tech lover, programmer, and traveler, combining innovation with global exploration."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="bg-gradient-1"></div>
+    <div class="bg-gradient-2"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-secondary z-50 border-b-2 border-graphite transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center gap-4">
-                    <a href="https://abinanth.indevs.in/" class="font-bold text-2xl tracking-tight text-graphite hover:text-accent-1 transition-colors">Abinanth</a>
-                    <div class="hidden sm:block px-3 py-1 bg-ash border-2 border-graphite text-graphite text-sm font-bold shadow-hard-hover">
-                        [ App: Logtrix ]
-                    </div>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="https://abinanth.indevs.in/#home-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Home</a>
-                    <a href="https://abinanth.indevs.in/#project-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Projects</a>
-                    <a href="https://abinanth.indevs.in/#contact-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Contact me</a>
-                    <a href="#download" class="bg-transparent text-graphite px-5 py-2.5 font-medium border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:bg-graphite hover:text-inverse transition-all">Download APK</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-graphite hover:text-accent-1 focus:outline-none p-2 border-2 border-transparent hover:border-graphite transition-all">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
-                </div>
-            </div>
+    <header class="header">
+      <nav class="nav-container">
+        <a href="#home-section" class="logo">Abinanth</a>
+        <div class="nav-links">
+          <a href="#home-section" class="nav-link active">Home</a>
+          <a href="#about-section" class="nav-link">About me</a>
+          <a href="#project-section" class="nav-link">Projects</a>
+          <a href="#contact-section" class="nav-link btn-contact">Contact me</a>
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
         </div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </nav>
+    </header>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-secondary border-b-2 border-graphite absolute w-full shadow-hard">
-            <div class="px-4 pt-2 pb-6 space-y-4">
-                <a href="https://abinanth.indevs.in/#home-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Home</a>
-                <a href="https://abinanth.indevs.in/#project-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Projects</a>
-                <a href="https://abinanth.indevs.in/#contact-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Contact me</a>
-                <a href="#download" class="block px-3 py-3 mt-4 bg-transparent text-graphite font-medium text-center border-2 border-graphite shadow-hard active:translate-x-1 active:translate-y-1 active:shadow-none transition-all mobile-link">Download APK</a>
-            </div>
+    <main>
+      <section id="home-section" class="hero-section fade-in-up sticky-reveal" style="z-index: 1;">
+        <div class="hero-reveal-inner">
+        <div class="hero-content">
+          <h1 class="hero-title">Abinanth A</h1>
+          <p class="hero-subtitle">
+            Code that scales. Journeys that inspire. Bridging technology and exploration one build at a time.
+          </p>
+          <blockquote class="hero-quote">
+            "If you read a book you gain knowledge, if you read world as a book then you gain
+            experience"
+          </blockquote>
+          <div class="hero-actions">
+            <a href="#project-section" class="btn btn-primary">View Projects</a>
+          </div>
         </div>
-    </nav>
+        <div class="hero-image-wrapper">
+          <div class="hero-image-container">
+            <img
+              src="/profile.jpg"
+              alt="Abinanth A in Kashmir"
+              class="hero-image"
+              id="profile-img"
+            />
+            <div class="image-glow"></div>
+          </div>
+        </div>
+        </div>
+      </section>
 
-    <main class="pt-24">
-        <!-- Hero Section -->
-        <section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden border-b-2 border-graphite bg-secondary">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-                    <div class="max-w-2xl animate-fade-in-up">
-                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-ash border-2 border-graphite text-sm font-medium text-graphite mb-8 shadow-hard-hover">
-                            <i data-lucide="zap" class="w-4 h-4 text-accent-1"></i> High-performance logistics app
-                        </div>
-                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-graphite mb-6 leading-[1.1]">
-                            Logistics <br><span class="bg-accent-2 text-graphite px-3 py-1 border-2 border-graphite shadow-hard inline-block my-2 transform -rotate-1">Simplified</span><br>
-                            Trips Tracked.<br>
-                            Earnings Maxed.
-                        </h1>
-                        <p class="text-xl text-fog mb-10 font-normal max-w-lg border-l-4 border-accent-1 pl-4">
-                            Digitize trip logs, automate expense tracking, and compute net earnings in real time — even fully offline.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-6 mt-10">
-                            <a href="#download" class="inline-flex justify-center items-center px-8 py-4 text-lg font-medium text-graphite bg-transparent border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:bg-accent-1 hover:text-inverse hover:border-accent-1 hover:shadow-none transition-all">
-                                Download APK
-                                <i data-lucide="arrow-down" class="ml-2 w-6 h-6"></i>
-                            </a>
-                            <a href="#features" class="inline-flex justify-center items-center px-8 py-4 text-lg font-medium text-graphite bg-secondary border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:bg-graphite hover:text-inverse hover:shadow-none transition-all">
-                                Explore Features
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="relative lg:h-[600px] flex items-center justify-center animate-fade-in-up" style="animation-delay: 200ms;">
-                        <!-- Brutalist App Preview -->
-                        <div class="relative w-full max-w-md aspect-[9/16] bg-ash border-2 border-graphite shadow-hard flex flex-col">
-                            <!-- Top Bar -->
-                            <div class="border-b-2 border-graphite bg-secondary p-4 flex items-center justify-between">
-                                <div class="flex gap-2">
-                                    <div class="w-3 h-3 rounded-full border-2 border-graphite bg-accent-1"></div>
-                                    <div class="w-3 h-3 rounded-full border-2 border-graphite bg-accent-2"></div>
-                                </div>
-                                <div class="font-medium text-graphite text-lg">Logtrix Dashboard</div>
-                                <i data-lucide="menu" class="text-graphite w-6 h-6"></i>
-                            </div>
-                            
-                            <!-- Content Area -->
-                            <div class="flex-1 p-6 flex flex-col gap-6 relative bg-ash">
-                                
-                                <div class="relative z-10 bg-secondary p-4 border-2 border-graphite shadow-hard-hover hover:-translate-y-1 transition-transform cursor-pointer">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <div class="p-2 bg-accent-2 border-2 border-graphite">
-                                            <i data-lucide="map-pin" class="text-graphite w-5 h-5"></i>
-                                        </div>
-                                        <div class="font-medium text-xl text-graphite">Active Trip</div>
-                                    </div>
-                                    <div class="h-3 w-3/4 bg-graphite/10 mb-2"></div>
-                                    <div class="h-3 w-1/2 bg-graphite/10"></div>
-                                </div>
-                                
-                                <div class="relative z-10 bg-secondary p-4 border-2 border-graphite shadow-hard-hover hover:-translate-y-1 transition-transform cursor-pointer">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <div class="p-2 bg-accent-1 border-2 border-graphite">
-                                            <i data-lucide="calculator" class="text-white w-5 h-5"></i>
-                                        </div>
-                                        <div class="font-medium text-xl text-graphite">Earnings</div>
-                                    </div>
-                                    <div class="h-6 w-1/2 bg-accent-2/20 border-2 border-accent-2 mb-2"></div>
-                                </div>
-                                
-                                <div class="relative z-10 grid grid-cols-2 gap-4 mt-auto">
-                                    <div class="bg-accent-3 p-4 border-2 border-graphite shadow-hard-hover flex flex-col items-center">
-                                        <i data-lucide="zap" class="text-graphite w-8 h-8 mb-2"></i>
-                                        <div class="font-medium text-graphite">Fast</div>
-                                    </div>
-                                    <div class="bg-secondary p-4 border-2 border-graphite shadow-hard-hover flex flex-col items-center">
-                                        <i data-lucide="wifi-off" class="text-graphite w-8 h-8 mb-2"></i>
-                                        <div class="font-medium text-graphite">Offline</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <!-- About Section -->
+      <section id="about-section" class="section fade-in-up sticky-reveal" style="border-top: var(--border-main); border-bottom: var(--border-main); background: var(--bg-secondary); max-width: 100%; padding: 6rem 2rem; z-index: 2;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <!-- Header -->
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; padding-bottom: 3rem; border-bottom: var(--border-main); margin-bottom: 3rem;">
+                <div style="background: var(--bg-ash); border: var(--border-main); padding: 0.5rem 1rem; font-size: 0.95rem; font-weight: 600; box-shadow: var(--shadow-hard-hover); display: inline-flex; text-transform: uppercase; letter-spacing: 0.5px;">
+                    [ 1st Year B.Tech CSE | Vibe-Coding in Free Time ]
                 </div>
-            </div>
-        </section>
-
-        <!-- Why Logtrix (4-card stat/benefit row) -->
-        <section class="py-16 border-b-2 border-graphite bg-ash">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="reveal bg-secondary p-6 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
-                        <div class="w-14 h-14 bg-accent-3 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
-                            <i data-lucide="wifi-off" class="w-8 h-8 text-graphite"></i>
-                        </div>
-                        <h3 class="text-xl font-medium text-graphite mb-2">Offline</h3>
-                        <p class="text-fog font-normal">Seamless operation on remote routes without internet.</p>
-                    </div>
-                    <div class="reveal bg-secondary p-6 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all" style="transition-delay: 100ms;">
-                        <div class="w-14 h-14 bg-accent-1 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
-                            <i data-lucide="zap" class="w-8 h-8 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-medium text-graphite mb-2">Real-Time</h3>
-                        <p class="text-fog font-normal">Instant rent, batta, and balance calculations.</p>
-                    </div>
-                    <div class="reveal bg-secondary p-6 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all" style="transition-delay: 200ms;">
-                        <div class="w-14 h-14 bg-accent-2 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
-                            <i data-lucide="timer" class="w-8 h-8 text-graphite"></i>
-                        </div>
-                        <h3 class="text-xl font-medium text-graphite mb-2">Fast Entry</h3>
-                        <p class="text-fog font-normal">Log trips, weights, and fuel in seconds.</p>
-                    </div>
-                    <div class="reveal bg-secondary p-6 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all" style="transition-delay: 300ms;">
-                        <div class="w-14 h-14 bg-accent-4 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
-                            <i data-lucide="trending-up" class="w-8 h-8 text-graphite"></i>
-                        </div>
-                        <h3 class="text-xl font-medium text-graphite mb-2">Growth Ready</h3>
-                        <p class="text-fog font-normal">Clearer profitability for sharper operational decisions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Intro Strip -->
-        <section id="overview" class="py-24 bg-accent-1 text-white border-b-2 border-graphite">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-                <i data-lucide="quote" class="w-12 h-12 mx-auto text-graphite mb-6"></i>
-                <p class="text-3xl md:text-4xl font-medium leading-tight border-2 border-graphite bg-secondary text-graphite p-8 shadow-hard">
-                    Logtrix centralizes trip logging and earnings visibility into one workflow.
-                </p>
-            </div>
-        </section>
-
-        <!-- Key Features -->
-        <section id="features" class="py-24 bg-ash relative border-b-2 border-graphite">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center mb-16 reveal">
-                    <h2 class="inline-block text-4xl md:text-5xl font-medium mb-4 bg-secondary text-graphite px-6 py-2 border-2 border-graphite shadow-hard">
-                        Engineered for Efficiency
-                    </h2>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="bg-secondary border-2 border-graphite p-8 reveal shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group">
-                        <div class="w-16 h-16 bg-accent-3 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
-                            <i data-lucide="user-check" class="w-8 h-8 text-graphite"></i>
-                        </div>
-                        <h3 class="text-2xl font-medium mb-3 text-graphite">Profile-Aware</h3>
-                        <p class="text-fog font-normal">Select a truck ID, and driver info auto-fills instantly. Say goodbye to repetitive entry.</p>
-                    </div>
-
-                    <!-- Feature 2 -->
-                    <div class="bg-secondary border-2 border-graphite p-8 reveal shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group" style="transition-delay: 100ms;">
-                        <div class="w-16 h-16 bg-accent-1 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
-                            <i data-lucide="list-plus" class="w-8 h-8 text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-medium mb-3 text-graphite">Dynamic Entry</h3>
-                        <p class="text-fog font-normal">Dynamic rows for multiple trips, materials, weights, and fuel—log complex days in one go.</p>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="bg-secondary border-2 border-graphite p-8 reveal shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group" style="transition-delay: 200ms;">
-                        <div class="w-16 h-16 bg-accent-2 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
-                            <i data-lucide="calculator" class="w-8 h-8 text-graphite"></i>
-                        </div>
-                        <h3 class="text-2xl font-medium mb-3 text-graphite">Instant Financials</h3>
-                        <p class="text-fog font-normal">Auto rent, batta, and balance calculation. Know your numbers the second the trip ends.</p>
-                    </div>
-
-                    <!-- Feature 4 -->
-                    <div class="bg-secondary border-2 border-graphite p-8 reveal shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group" style="transition-delay: 300ms;">
-                        <div class="w-16 h-16 bg-accent-3 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
-                            <i data-lucide="database" class="w-8 h-8 text-graphite"></i>
-                        </div>
-                        <h3 class="text-2xl font-medium mb-3 text-graphite">Offline Reliability</h3>
-                        <p class="text-fog font-normal">Writes directly to a fast local DB. Never lose data or connectivity on remote rural routes.</p>
-                    </div>
-
-                    <!-- Feature 5 -->
-                    <div class="bg-secondary border-2 border-graphite p-8 reveal shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group" style="transition-delay: 400ms;">
-                        <div class="w-16 h-16 bg-secondary border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
-                            <i data-lucide="layout-dashboard" class="w-8 h-8 text-graphite"></i>
-                        </div>
-                        <h3 class="text-2xl font-medium mb-3 text-graphite">Analytics Dashboard</h3>
-                        <p class="text-fog font-normal">Last 10 days view, filter by route, and expandable detail cards for deep-dive analytics.</p>
-                    </div>
-
-                    <!-- Feature 6 -->
-                    <div class="bg-secondary border-2 border-graphite p-8 reveal shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group" style="transition-delay: 500ms;">
-                        <div class="w-16 h-16 bg-accent-4 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
-                            <i data-lucide="briefcase" class="w-8 h-8 text-graphite"></i>
-                        </div>
-                        <h3 class="text-2xl font-medium mb-3 text-graphite">Built For Operators</h3>
-                        <p class="text-fog font-normal">Reduces admin friction and improves accuracy so you can focus on moving cargo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tech Stack -->
-        <section id="tech" class="py-24 border-b-2 border-graphite bg-secondary">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="inline-block text-3xl font-medium text-graphite mb-16 reveal border-b-4 border-accent-3 pb-2">
-                    Powered By
-                </h2>
-                <div class="flex flex-wrap justify-center gap-8 reveal">
-                    <!-- Flutter -->
-                    <div class="flex items-center gap-4 bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
-                        <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.314 0L2.3 12L5.671 15.371L21.057 0H14.314Z" fill="#00CCFF"/>
-                            <path d="M14.314 24H21.057L10.971 13.914L7.6 17.286L14.314 24Z" fill="#00CCFF"/>
-                            <path d="M10.971 13.914L14.314 10.571L21.057 10.571L17.714 13.914L10.971 13.914Z" fill="#1C1B19"/>
-                        </svg>
-                        <div class="text-left">
-                            <div class="text-sm text-fog font-medium uppercase tracking-wider">Frontend</div>
-                            <div class="font-medium text-graphite text-2xl">Flutter</div>
-                        </div>
-                    </div>
-                    <!-- Riverpod -->
-                    <div class="flex items-center gap-4 bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
-                        <i data-lucide="layers" class="w-12 h-12 text-graphite"></i>
-                        <div class="text-left">
-                            <div class="text-sm text-fog font-medium uppercase tracking-wider">State</div>
-                            <div class="font-medium text-graphite text-2xl">Riverpod</div>
-                        </div>
-                    </div>
-                    <!-- Isar -->
-                    <div class="flex items-center gap-4 bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
-                        <i data-lucide="hard-drive" class="w-12 h-12 text-graphite"></i>
-                        <div class="text-left">
-                            <div class="text-sm text-fog font-medium uppercase tracking-wider">Local DB</div>
-                            <div class="font-medium text-graphite text-2xl">Isar NoSQL</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Download Section -->
-        <section id="download" class="py-32 bg-ash relative">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-                <div class="w-24 h-24 bg-accent-2 border-2 border-graphite flex items-center justify-center mx-auto mb-10 shadow-hard">
-                    <i data-lucide="download" class="w-12 h-12 text-graphite"></i>
-                </div>
-                <h2 class="text-5xl md:text-6xl font-medium text-graphite mb-8">Download Logtrix</h2>
-                <p class="text-xl text-fog mb-12 font-normal max-w-2xl mx-auto border-2 border-graphite bg-secondary p-6 shadow-hard">
-                    Take control of your fleet's finances today. Install the app directly on your Android device and experience streamlined logistics.
-                </p>
-                <a href="./logtrix.apk" download class="inline-flex justify-center items-center px-12 py-6 text-2xl font-medium text-graphite bg-transparent border-2 border-graphite transition-all shadow-hard hover:translate-x-1 hover:translate-y-1 hover:bg-graphite hover:text-inverse hover:shadow-none w-full sm:w-auto">
-                    Download APK
-                    <i data-lucide="download" class="ml-4 w-8 h-8"></i>
-                </a>
-                <p class="mt-8 text-sm font-medium text-graphite flex items-center justify-center gap-2 bg-secondary inline-block px-4 py-2 border-2 border-graphite shadow-hard-hover mx-auto">
-                    <i data-lucide="info" class="w-5 h-5"></i>
-                    Allow installation from unknown sources
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-ash py-12 border-t-2 border-graphite">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-secondary border-2 border-graphite flex items-center justify-center shadow-hard-hover">
-                    <i data-lucide="truck" class="w-6 h-6 text-graphite"></i>
-                </div>
-                <span class="font-medium text-2xl text-graphite tracking-wide">Logtrix</span>
+                <h2 style="font-family: var(--font-heading); font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; text-transform: uppercase; margin: 0; line-height: 1;">About Me</h2>
             </div>
             
-            <div class="text-center md:text-right font-normal text-fog">
-                <p class="mb-2">&copy; 2026 Abinanth A. All rights reserved.</p>
-                <p class="text-sm">
-                    Developed by <a href="https://abinanth.indevs.in" target="_blank" rel="noopener noreferrer" class="text-graphite hover:!text-accent-1 transition-colors font-medium">Abinanth A</a>
-                </p>
+            <!-- 2-Column Layout -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem;">
+                <div style="border-right: var(--border-main); padding-right: 2rem;" id="about-col-1">
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; display: inline-block; border-bottom: 4px solid var(--accent-1); padding-bottom: 0.5rem;">Academic Journey</h3>
+                    <p style="font-size: 1.15rem; color: var(--text-fog); line-height: 1.8;">
+                        I recently completed my Class 12 studies with a strong focus on Computer Science, which built my foundation in computational thinking. I am currently navigating my 1st year pursuing a <strong>B.Tech in Computer Science &amp; Engineering</strong>, where I'm diving deeper into core CS principles and system architecture.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; display: inline-block; border-bottom: 4px solid var(--accent-2); padding-bottom: 0.5rem;">Current Focus &amp; Mindset</h3>
+                    <p style="font-size: 1.15rem; color: var(--text-fog); line-height: 1.8;">
+                        While my primary focus remains on acing my B.Tech curriculum, my real passion ignites outside of class hours. Whenever inspiration strikes, I spend my free time <strong>vibe-coding</strong> production-ready applications. I've engineered real-world solutions like <strong>Logtrix</strong> and <strong>Werkzatic Automotives</strong>, translating abstract logic into high-performance, functional products.
+                    </p>
+                </div>
             </div>
         </div>
-    </footer>
+      </section>
 
-    <script src="script.js"></script>
-    <script>
-      if (typeof lucide !== 'undefined') {
-          lucide.createIcons();
-      }
-    </script>
-    <script type="module">import '../smooth-scroll.js';</script>
-</body>
+      <section id="project-section" class="section fade-in-up sticky-reveal" style="z-index: 3; background-color: var(--bg-ash);">
+        <div class="sticky-reveal-inner">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+          <a href="/logtrixproject/" class="project-card">
+            <div class="project-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 7h11v8H3z"></path>
+                <path d="M14 10h3l3 3v2h-6z"></path>
+                <circle cx="7.5" cy="17.5" r="1.5"></circle>
+                <circle cx="17.5" cy="17.5" r="1.5"></circle>
+                <path d="M5 17.5h1"></path>
+                <path d="M14 17.5h2"></path>
+                <path d="M14 12h4"></path>
+              </svg>
+            </div>
+            <div class="project-info">
+              <h3>Logtrix</h3>
+              <p>
+                A streamlined mobile app to digitize trip logs, track fuel expenses, and automate
+                earnings calculations.
+              </p>
+              <span class="read-more">Click Here &rarr;</span>
+            </div>
+          </a>
+
+          <a href="/werkzatic.html" class="project-card">
+            <div class="project-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+            </div>
+            <div class="project-info">
+              <h3>Werkzatic Automotives</h3>
+              <p>A unified, role-based platform bridging intake, repair tracking, and automated PDF invoicing.</p>
+              <span class="read-more">Click Here &rarr;</span>
+            </div>
+          </a>
+        </div>
+        </div>
+      </section>
+
+      <section id="contact-section" class="section fade-in-up sticky-reveal" style="z-index: 4; background-color: var(--bg-secondary);">
+        <div class="sticky-reveal-inner">
+        <div class="contact-container">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="contact-subtitle">
+            Interested in collaborating or just want to say hi? I'd love to hear from you!
+          </p>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder="Your message..."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Send via Email</button>
+          </form>
+          <div class="contact-direct fade-in-up">
+            <a class="direct-email" href="mailto:abinanthaex@gmail.com">abinanthaex@gmail.com</a>
+            <div class="social-links" aria-label="Social links">
+              <a
+                class="social-link"
+                href="https://github.com/Abinanth-A"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 .5C5.65.5.98 5.35.98 11.78c0 4.98 3.15 9.2 7.52 10.49.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.04-3.06.68-3.71-1.33-3.71-1.33-.5-1.31-1.23-1.66-1.23-1.66-1-.7.08-.69.08-.69 1.11.08 1.7 1.17 1.7 1.17.99 1.73 2.59 1.23 3.22.94.1-.73.39-1.23.7-1.51-2.44-.28-5.01-1.25-5.01-5.55 0-1.23.43-2.23 1.14-3.02-.11-.28-.49-1.43.11-2.98 0 0 .93-.3 3.05 1.15.88-.25 1.83-.37 2.77-.38.94.01 1.89.13 2.78.38 2.11-1.45 3.04-1.15 3.04-1.15.6 1.55.22 2.7.11 2.98.71.79 1.14 1.79 1.14 3.02 0 4.31-2.57 5.26-5.02 5.54.4.35.75 1.03.75 2.08 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.76.53 4.36-1.29 7.51-5.51 7.51-10.49C23.02 5.35 18.35.5 12 .5Z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                class="social-link"
+                href="https://www.instagram.com/abinanth.4/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram profile"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer sticky-footer" style="z-index: 5;">
+      <div class="footer-content">
+        <div class="footer-logo">Abinanth A</div>
+        <p>&copy; 2026 Abinanth A. All rights reserved.</p>
+        <p class="powered-by" style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8;">
+          Powered by <a href="https://avorawebstudio.indevs.in" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; font-weight: 500;">Avorawebstudios</a>
+        </p>
+      </div>
+    </footer>
+    <script type="module" src="./main.js"></script>
+  </body>
 </html>
