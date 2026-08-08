@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werkzatic Automotives | Case Study</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@1.25.0/dist/umd/lucide.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Link to the main site's style.css for exact theme tokens -->
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Outfit', 'sans-serif'],
+            },
+            colors: {
+              ash: 'var(--bg-ash)',
+              secondary: 'var(--bg-secondary)',
+              graphite: 'var(--text-graphite)',
+              fog: 'var(--text-fog)',
+              inverse: 'var(--text-inverse)',
+              accent: {
+                1: 'var(--accent-1)',
+                2: 'var(--accent-2)',
+                3: 'var(--accent-3)',
+                4: 'var(--accent-4)',
+              },
+            },
+            boxShadow: {
+              'hard': 'var(--shadow-hard)',
+              'hard-hover': 'var(--shadow-hard-hover)',
+            },
+            borderWidth: {
+              '2': '2px',
+              '4': '4px',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Text Reveal Animation */
+      .text-reveal-container span {
+        opacity: 0.15;
+        transition: opacity 0.2s ease-out;
+      }
+      
+      /* Staggered Pop-ins */
+      .stagger-card {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+      }
+      .stagger-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+</head>
+<body class="bg-ash text-graphite font-sans antialiased overflow-x-hidden selection:bg-accent-1 selection:text-inverse">
+
+    <!-- Fake scroll space for Hero Animation -->
+    <div style="height: 100vh;" id="hero-scroll-space"></div>
+
+    <!-- Fixed Hero Wrapper -->
+    <div id="intro-wrapper" class="fixed inset-0 z-40 flex items-center justify-center pointer-events-none transition-opacity duration-500">
+        <div id="intro-card" class="bg-secondary border-4 border-graphite shadow-hard flex flex-col items-center justify-center pointer-events-auto overflow-hidden relative" style="width: 400px; height: 300px;">
+            <div class="flex flex-col items-center justify-center absolute inset-0 p-8 text-center w-full h-full">
+                <h1 id="intro-title" class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-graphite uppercase leading-[1.1]">
+                    Werkzatic <br><span class="bg-accent-3 text-graphite px-4 py-2 border-2 border-graphite shadow-hard inline-block transform -rotate-2 my-2">Automotives</span>
+                </h1>
+                <div id="intro-subtitle" class="mt-12 font-medium text-fog tracking-wide animate-pulse">
+                    [ ↓ Scroll to Explore ]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-secondary z-50 border-b-2 border-graphite transition-all duration-500 shadow-hard -translate-y-full opacity-0 pointer-events-none" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-4">
+                    <a href="https://abinanth.indevs.in/" class="font-bold text-2xl tracking-tight text-graphite hover:text-accent-1 transition-colors">Abinanth</a>
+                    <div class="hidden sm:block px-3 py-1 bg-ash border-2 border-graphite text-graphite text-sm font-bold shadow-hard-hover">
+                        [ App: Werkzatic Automotives ]
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="https://abinanth.indevs.in/#home-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Home</a>
+                    <a href="https://abinanth.indevs.in/#project-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Projects</a>
+                    <a href="https://abinanth.indevs.in/#contact-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Contact me</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-graphite hover:text-accent-1 focus:outline-none p-2 border-2 border-transparent hover:border-graphite transition-all">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-secondary border-b-2 border-graphite absolute w-full shadow-hard">
+            <div class="px-4 pt-2 pb-6 space-y-4">
+                <a href="https://abinanth.indevs.in/#home-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all">Home</a>
+                <a href="https://abinanth.indevs.in/#project-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all">Projects</a>
+                <a href="https://abinanth.indevs.in/#contact-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all">Contact me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="relative z-30 bg-ash opacity-0 transition-opacity duration-500">
+        
+        <!-- Original Hero Section -->
+        <section class="relative pt-48 pb-20 lg:pt-56 lg:pb-32 border-b-2 border-graphite bg-secondary overflow-hidden">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-ash border-2 border-graphite text-sm font-medium text-graphite mb-8 shadow-hard-hover stagger-card">
+                    <i data-lucide="wrench" class="w-4 h-4 text-accent-4"></i> Workshop Management System
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-graphite mb-8 uppercase leading-[1.1] stagger-card">
+                    Werkzatic <span class="bg-accent-3 text-graphite px-4 py-2 border-2 border-graphite shadow-hard inline-block transform -rotate-2 my-2">Automotives</span>
+                </h1>
+                
+                <!-- Text Scroll Reveal Container -->
+                <div class="text-reveal-container text-2xl md:text-4xl font-medium leading-relaxed max-w-4xl mx-auto mt-16 text-left border-l-4 border-accent-1 pl-6 py-2" id="hero-reveal">
+                    Building a unified, role-based platform that brings intake, repair tracking, and automated PDF invoicing into a single high-contrast workspace. Built for real shop floors where speed is everything.
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem & Solution Split -->
+        <section class="py-24 pt-32 border-b-2 border-graphite bg-ash relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 stagger-card">
+                    <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tight">From Paper to Cloud</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-secondary p-8 border-2 border-graphite shadow-hard stagger-card">
+                        <div class="w-14 h-14 bg-accent-1 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
+                            <i data-lucide="alert-triangle" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6">The Chaos</h3>
+                        <div class="text-reveal-container text-xl font-medium leading-relaxed text-fog" id="problem-reveal">
+                            Mechanics rely on scattered WhatsApp messages and paper slips. Admins lose track of active repairs, leading to delayed invoices, misplaced parts, and poor customer transparency. The intake process is too slow.
+                        </div>
+                    </div>
+                    
+                    <div class="bg-secondary p-8 border-2 border-graphite shadow-hard stagger-card" style="transition-delay: 100ms;">
+                        <div class="w-14 h-14 bg-accent-2 border-2 border-graphite flex items-center justify-center mb-6 shadow-hard-hover">
+                            <i data-lucide="check-circle-2" class="w-8 h-8 text-graphite"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6">The Fix</h3>
+                        <div class="text-reveal-container text-xl font-medium leading-relaxed text-fog" id="solution-reveal">
+                            A real-time Flutter application backed by Supabase. One centralized ledger for vehicle intake, digital workbenches for technicians, and automated, professional PDF invoicing for the front desk.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Workflow -->
+        <section class="py-24 bg-secondary border-b-2 border-graphite">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 uppercase stagger-card">The Core Workflow</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- Step 1 -->
+                    <div class="bg-ash p-8 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group stagger-card">
+                        <div class="w-16 h-16 bg-accent-3 border-2 border-graphite flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform shadow-hard-hover">
+                            <i data-lucide="car" class="w-8 h-8 text-graphite"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">1. Intake</h3>
+                        <p class="text-fog font-medium">Capture vehicle info, photos, and initial symptoms.</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="bg-ash p-8 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group stagger-card" style="transition-delay: 100ms;">
+                        <div class="w-16 h-16 bg-accent-4 border-2 border-graphite flex items-center justify-center mb-6 group-hover:-rotate-12 transition-transform shadow-hard-hover">
+                            <i data-lucide="wrench" class="w-8 h-8 text-graphite"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">2. Workbench</h3>
+                        <p class="text-fog font-medium">Technicians log repairs, parts used, and labor hours.</p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="bg-ash p-8 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group stagger-card" style="transition-delay: 200ms;">
+                        <div class="w-16 h-16 bg-accent-1 border-2 border-graphite flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform shadow-hard-hover">
+                            <i data-lucide="file-text" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">3. Billing</h3>
+                        <p class="text-fog font-medium">Admin reviews log and generates branded PDF invoice.</p>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="bg-ash p-8 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group stagger-card" style="transition-delay: 300ms;">
+                        <div class="w-16 h-16 bg-accent-2 border-2 border-graphite flex items-center justify-center mb-6 group-hover:-rotate-12 transition-transform shadow-hard-hover">
+                            <i data-lucide="history" class="w-8 h-8 text-graphite"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">4. Ledger</h3>
+                        <p class="text-fog font-medium">Permanent history retained for returning customers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Role-Based Security Matrix -->
+        <section class="py-24 bg-ash border-b-2 border-graphite">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 stagger-card">
+                    <h2 class="inline-block text-4xl font-bold mb-4 bg-secondary text-graphite px-6 py-2 border-2 border-graphite shadow-hard uppercase">
+                        Strict Role-Based Security
+                    </h2>
+                    <p class="text-xl text-fog mt-6 max-w-2xl mx-auto">Secured by Supabase Row Level Security (RLS) policies. Access is strictly partitioned by user identity.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Tech Card -->
+                    <div class="bg-secondary border-2 border-graphite shadow-hard flex flex-col stagger-card">
+                        <div class="bg-graphite text-inverse p-6 border-b-2 border-graphite flex justify-between items-center">
+                            <h3 class="text-3xl font-bold" style="color: var(--text-inverse);">Technician</h3>
+                            <i data-lucide="user" class="w-8 h-8 text-accent-3"></i>
+                        </div>
+                        <ul class="p-8 space-y-6 text-xl font-medium">
+                            <li class="flex items-start gap-4"><i data-lucide="check" class="w-8 h-8 text-accent-2 mt-0.5 shrink-0"></i> View assigned intake jobs.</li>
+                            <li class="flex items-start gap-4"><i data-lucide="check" class="w-8 h-8 text-accent-2 mt-0.5 shrink-0"></i> Add repair logs and request parts.</li>
+                            <li class="flex items-start gap-4"><i data-lucide="x" class="w-8 h-8 text-accent-1 mt-0.5 shrink-0"></i> Cannot view financials or pricing.</li>
+                            <li class="flex items-start gap-4"><i data-lucide="x" class="w-8 h-8 text-accent-1 mt-0.5 shrink-0"></i> Cannot generate invoices.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Admin Card -->
+                    <div class="bg-secondary border-2 border-graphite shadow-hard flex flex-col stagger-card" style="transition-delay: 150ms;">
+                        <div class="bg-graphite text-inverse p-6 border-b-2 border-graphite flex justify-between items-center">
+                            <h3 class="text-3xl font-bold" style="color: var(--text-inverse);">Admin</h3>
+                            <i data-lucide="shield" class="w-8 h-8 text-accent-2"></i>
+                        </div>
+                        <ul class="p-8 space-y-6 text-xl font-medium">
+                            <li class="flex items-start gap-4"><i data-lucide="check" class="w-8 h-8 text-accent-2 mt-0.5 shrink-0"></i> Full overview of all shop operations.</li>
+                            <li class="flex items-start gap-4"><i data-lucide="check" class="w-8 h-8 text-accent-2 mt-0.5 shrink-0"></i> Assign jobs to technicians.</li>
+                            <li class="flex items-start gap-4"><i data-lucide="check" class="w-8 h-8 text-accent-2 mt-0.5 shrink-0"></i> Manage pricing, inventory, and parts.</li>
+                            <li class="flex items-start gap-4"><i data-lucide="check" class="w-8 h-8 text-accent-2 mt-0.5 shrink-0"></i> Generate final PDFs and collect payments.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features & Tech Stack -->
+        <section class="py-24 bg-secondary border-b-2 border-graphite">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-10 stagger-card uppercase">Built For Real Conditions</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="flex gap-4 p-4 bg-ash border-2 border-graphite shadow-hard-hover stagger-card hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                                <div class="w-14 h-14 shrink-0 bg-accent-4 border-2 border-graphite flex items-center justify-center">
+                                    <i data-lucide="camera" class="w-8 h-8 text-graphite"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">Auto-Compressed Media</h4>
+                                    <p class="text-fog">Intake photos are heavily compressed locally before upload to save bandwidth and storage on Supabase.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-4 p-4 bg-ash border-2 border-graphite shadow-hard-hover stagger-card hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all" style="transition-delay: 100ms;">
+                                <div class="w-14 h-14 shrink-0 bg-accent-2 border-2 border-graphite flex items-center justify-center">
+                                    <i data-lucide="message-square" class="w-8 h-8 text-graphite"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">1-Tap WhatsApp Sharing</h4>
+                                    <p class="text-fog">Generated PDF invoices can be securely linked and shared directly to the customer's WhatsApp instantly.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-4 p-4 bg-ash border-2 border-graphite shadow-hard-hover stagger-card hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all" style="transition-delay: 200ms;">
+                                <div class="w-14 h-14 shrink-0 bg-accent-3 border-2 border-graphite flex items-center justify-center">
+                                    <i data-lucide="file-check" class="w-8 h-8 text-graphite"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">Dynamic PDF Engine</h4>
+                                    <p class="text-fog">On-device generation of professional, shop-branded invoices requiring zero external API dependencies.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-ash border-2 border-graphite p-8 flex flex-col items-center text-center shadow-hard stagger-card hover:-translate-y-2 hover:shadow-hard-hover transition-all">
+                            <svg class="w-12 h-12 mb-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Flutter</title><path fill="#02569B" d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/></svg>
+                            <h4 class="font-bold text-xl">Flutter</h4>
+                            <p class="text-sm text-fog mt-2 font-medium">Riverpod State Management</p>
+                        </div>
+                        <div class="bg-ash border-2 border-graphite p-8 flex flex-col items-center text-center shadow-hard stagger-card hover:-translate-y-2 hover:shadow-hard-hover transition-all" style="transition-delay: 100ms;">
+                            <svg class="w-12 h-12 mb-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Supabase</title><path fill="#3ECF8E" d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></svg>
+                            <h4 class="font-bold text-xl">Supabase</h4>
+                            <p class="text-sm text-fog mt-2 font-medium">Postgres Backend</p>
+                        </div>
+                        <div class="bg-ash border-2 border-graphite p-8 flex flex-col items-center text-center shadow-hard stagger-card hover:-translate-y-2 hover:shadow-hard-hover transition-all" style="transition-delay: 200ms;">
+                            <svg class="w-12 h-12 mb-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PostgreSQL</title><path fill="#4169E1" d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"/></svg>
+                            <h4 class="font-bold text-xl">RLS</h4>
+                            <p class="text-sm text-fog mt-2 font-medium">Row Level Security</p>
+                        </div>
+                        <div class="bg-ash border-2 border-graphite p-8 flex flex-col items-center text-center shadow-hard stagger-card hover:-translate-y-2 hover:shadow-hard-hover transition-all" style="transition-delay: 300ms;">
+                            <svg class="w-12 h-12 mb-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Deno</title><path fill="#000000" d="M1.105 18.02A11.9 11.9 0 0 1 0 12.985q0-.698.078-1.376a12 12 0 0 1 .231-1.34A12 12 0 0 1 4.025 4.02a12 12 0 0 1 5.46-2.771 12 12 0 0 1 3.428-.23c1.452.112 2.825.477 4.077 1.05a12 12 0 0 1 2.78 1.774 12.02 12.02 0 0 1 4.053 7.078A12 12 0 0 1 24 12.985q0 .454-.036.914a12 12 0 0 1-.728 3.305 12 12 0 0 1-2.38 3.875c-1.33 1.357-3.02 1.962-4.43 1.936a4.4 4.4 0 0 1-2.724-1.024c-.99-.853-1.391-1.83-1.53-2.919a5 5 0 0 1 .128-1.518c.105-.38.37-1.116.76-1.437-.455-.197-1.04-.624-1.226-.829-.045-.05-.04-.13 0-.183a.155.155 0 0 1 .177-.053c.392.134.869.267 1.372.35.66.111 1.484.25 2.317.292 2.03.1 4.153-.813 4.812-2.627s.403-3.609-1.96-4.685-3.454-2.356-5.363-3.128c-1.247-.505-2.636-.205-4.06.582-3.838 2.121-7.277 8.822-5.69 15.032a.191.191 0 0 1-.315.19 12 12 0 0 1-1.25-1.634 12 12 0 0 1-.769-1.404M11.57 6.087c.649-.051 1.214.501 1.31 1.236.13.979-.228 1.99-1.41 2.013-1.01.02-1.315-.997-1.248-1.614.066-.616.574-1.575 1.35-1.635"/></svg>
+                            <h4 class="font-bold text-xl">Edge Functions</h4>
+                            <p class="text-sm text-fog mt-2 font-medium">Serverless Tasks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-ash py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-secondary border-2 border-graphite flex items-center justify-center shadow-hard-hover">
+                        <span class="font-bold font-heading text-graphite">A</span>
+                    </div>
+                    <span class="font-medium text-2xl text-graphite tracking-wide font-heading">Abinanth A</span>
+                </div>
+                
+                <div class="text-center md:text-right font-normal text-fog">
+                    <p class="mb-2">&copy; 2026 Abinanth A. All rights reserved.</p>
+                    <p class="text-sm">
+                        Developed by <a href="https://abinanth.indevs.in" target="_blank" rel="noopener noreferrer" class="text-graphite hover:!text-accent-1 transition-colors font-medium">Abinanth A</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Logic for Animations -->
+    <script>
+      // Initialize Lucide Icons
+      if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+      }
+
+      // Mobile Menu Toggle
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      if(btn && menu) {
+          btn.addEventListener('click', () => {
+              menu.classList.toggle('hidden');
+          });
+      }
+
+      // Wrap text in span for Scroll Reveal
+      document.querySelectorAll('.text-reveal-container').forEach(container => {
+          const text = container.textContent.trim();
+          const words = text.split(/\s+/);
+          container.innerHTML = '';
+          words.forEach(word => {
+              const span = document.createElement('span');
+              span.textContent = word + ' ';
+              container.appendChild(span);
+          });
+      });
+
+      // --- HERO SCROLL EXPAND LOGIC ---
+      const introCard = document.getElementById('intro-card');
+      const introTitle = document.getElementById('intro-title');
+      const introSubtitle = document.getElementById('intro-subtitle');
+      const navbar = document.getElementById('navbar');
+      const mainContent = document.getElementById('main-content');
+      const introWrapper = document.getElementById('intro-wrapper');
+      
+      // Calculate start sizes
+      const isMobile = window.innerWidth < 768;
+      const startW = isMobile ? window.innerWidth * 0.9 : 400;
+      const startH = isMobile ? 400 : 300;
+
+      // Initialize card size
+      introCard.style.width = startW + 'px';
+      introCard.style.height = startH + 'px';
+
+      window.addEventListener('scroll', () => {
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const windowWidth = window.innerWidth;
+          
+          // Intro progress based on first 100vh of scrolling
+          let progress = scrollY / windowHeight;
+          progress = Math.min(1, Math.max(0, progress));
+
+          // Interpolate width and height
+          const currentW = startW + ((windowWidth - startW) * progress);
+          const currentH = startH + ((windowHeight - startH) * progress);
+          
+          introCard.style.width = currentW + 'px';
+          introCard.style.height = currentH + 'px';
+
+          // Shrink border and shadow as it expands
+          const currentShadow = 8 - (8 * progress);
+          introCard.style.boxShadow = `${currentShadow}px ${currentShadow}px 0px var(--text-graphite)`;
+          
+          const currentBorder = 4 - (4 * progress);
+          introCard.style.borderWidth = `${currentBorder}px`;
+
+          // Fade out intro text
+          introTitle.style.opacity = 1 - (progress * 1.5);
+          introSubtitle.style.opacity = 1 - (progress * 2);
+
+          // State cutoffs at progress = 1
+          if (progress === 1) {
+              // Hide intro card visually so it doesn't cover pointer events
+              introWrapper.classList.add('opacity-0');
+              
+              // Reveal navbar and main content
+              navbar.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+              mainContent.classList.remove('opacity-0');
+          } else {
+              introWrapper.classList.remove('opacity-0');
+              
+              // Hide navbar and main content
+              navbar.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+              mainContent.classList.add('opacity-0');
+          }
+
+          // --- TEXT SCROLL REVEAL LOGIC (only active when main content is shown) ---
+          if (progress >= 1) {
+              document.querySelectorAll('.text-reveal-container').forEach(container => {
+                  const rect = container.getBoundingClientRect();
+                  const containerTop = rect.top;
+                  
+                  // Reveal when element enters the bottom 80% of screen, finishes by 20%
+                  const startReveal = windowHeight * 0.8; 
+                  const endReveal = windowHeight * 0.2; 
+                  
+                  let textProgress = (startReveal - containerTop) / (startReveal - endReveal);
+                  textProgress = Math.max(0, Math.min(1, textProgress)); 
+
+                  const spans = container.querySelectorAll('span');
+                  const totalSpans = spans.length;
+                  const revealCount = Math.floor(textProgress * totalSpans);
+
+                  spans.forEach((span, index) => {
+                      if (index < revealCount) {
+                          span.style.opacity = 1;
+                      } else {
+                          const diff = index - textProgress * totalSpans;
+                          if (diff < 2) {
+                              span.style.opacity = Math.max(0.15, 1 - (diff * 0.4));
+                          } else {
+                              span.style.opacity = 0.15;
+                          }
+                      }
+                  });
+              });
+          }
+      });
+
+      // --- STAGGERED POP-INS LOGIC ---
+      const staggerCards = document.querySelectorAll('.stagger-card');
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+              }
+          });
+      }, {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
+      });
+
+      staggerCards.forEach(card => observer.observe(card));
+
+      // Trigger initial scroll calculation
+      window.dispatchEvent(new Event('scroll'));
+    </script>
+    <script type="module">import './smooth-scroll.js';</script>
+</body>
+</html>

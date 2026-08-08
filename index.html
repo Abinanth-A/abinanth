@@ -26,6 +26,7 @@
         <a href="#home-section" class="logo">Abinanth</a>
         <div class="nav-links">
           <a href="#home-section" class="nav-link active">Home</a>
+          <a href="#about-section" class="nav-link">About me</a>
           <a href="#project-section" class="nav-link">Projects</a>
           <a href="#contact-section" class="nav-link btn-contact">Contact me</a>
           <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
@@ -53,11 +54,12 @@
     </header>
 
     <main>
-      <section id="home-section" class="hero-section fade-in-up">
+      <section id="home-section" class="hero-section fade-in-up sticky-reveal" style="z-index: 1;">
+        <div class="hero-reveal-inner">
         <div class="hero-content">
           <h1 class="hero-title">Abinanth A</h1>
           <p class="hero-subtitle">
-            Tech lover, programmer, and traveler, combining innovation with global exploration.
+            Code that scales. Journeys that inspire. Bridging technology and exploration one build at a time.
           </p>
           <blockquote class="hero-quote">
             "If you read a book you gain knowledge, if you read world as a book then you gain
@@ -78,9 +80,40 @@
             <div class="image-glow"></div>
           </div>
         </div>
+        </div>
       </section>
 
-      <section id="project-section" class="section fade-in-up">
+      <!-- About Section -->
+      <section id="about-section" class="section fade-in-up sticky-reveal" style="border-top: var(--border-main); border-bottom: var(--border-main); background: var(--bg-secondary); max-width: 100%; padding: 6rem 2rem; z-index: 2;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <!-- Header -->
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; padding-bottom: 3rem; border-bottom: var(--border-main); margin-bottom: 3rem;">
+                <div style="background: var(--bg-ash); border: var(--border-main); padding: 0.5rem 1rem; font-size: 0.95rem; font-weight: 600; box-shadow: var(--shadow-hard-hover); display: inline-flex; text-transform: uppercase; letter-spacing: 0.5px;">
+                    [ 1st Year B.Tech CSE | Vibe-Coding in Free Time ]
+                </div>
+                <h2 style="font-family: var(--font-heading); font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; text-transform: uppercase; margin: 0; line-height: 1;">About Me</h2>
+            </div>
+            
+            <!-- 2-Column Layout -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem;">
+                <div style="border-right: var(--border-main); padding-right: 2rem;" id="about-col-1">
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; display: inline-block; border-bottom: 4px solid var(--accent-1); padding-bottom: 0.5rem;">Academic Journey</h3>
+                    <p style="font-size: 1.15rem; color: var(--text-fog); line-height: 1.8;">
+                        I recently completed my Class 12 studies with a strong focus on Computer Science, which built my foundation in computational thinking. I am currently navigating my 1st year pursuing a <strong>B.Tech in Computer Science &amp; Engineering</strong>, where I'm diving deeper into core CS principles and system architecture.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; display: inline-block; border-bottom: 4px solid var(--accent-2); padding-bottom: 0.5rem;">Current Focus &amp; Mindset</h3>
+                    <p style="font-size: 1.15rem; color: var(--text-fog); line-height: 1.8;">
+                        While my primary focus remains on acing my B.Tech curriculum, my real passion ignites outside of class hours. Whenever inspiration strikes, I spend my free time <strong>vibe-coding</strong> production-ready applications. I've engineered real-world solutions like <strong>Logtrix</strong> and <strong>Werkzatic Automotives</strong>, translating abstract logic into high-performance, functional products.
+                    </p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="project-section" class="section fade-in-up sticky-reveal" style="z-index: 3; background-color: var(--bg-ash);">
+        <div class="sticky-reveal-inner">
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
           <a href="/logtrixproject/" class="project-card">
@@ -114,7 +147,7 @@
             </div>
           </a>
 
-          <a href="/onlinecalculator/" class="project-card">
+          <a href="/werkzatic.html" class="project-card">
             <div class="project-icon">
               <svg
                 width="24"
@@ -126,29 +159,21 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
-                <line x1="8" y1="6" x2="16" y2="6"></line>
-                <line x1="16" y1="14" x2="16" y2="14.01"></line>
-                <line x1="12" y1="14" x2="12" y2="14.01"></line>
-                <line x1="8" y1="14" x2="8" y2="14.01"></line>
-                <line x1="16" y1="18" x2="16" y2="18.01"></line>
-                <line x1="12" y1="18" x2="12" y2="18.01"></line>
-                <line x1="8" y1="18" x2="8" y2="18.01"></line>
-                <line x1="16" y1="10" x2="16" y2="10.01"></line>
-                <line x1="12" y1="10" x2="12" y2="10.01"></line>
-                <line x1="8" y1="10" x2="8" y2="10.01"></line>
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
               </svg>
             </div>
             <div class="project-info">
-              <h3>Online Calculator</h3>
-              <p>A minimalist web-based calculator featuring a dynamic UI and smooth user experience.</p>
+              <h3>Werkzatic Automotives</h3>
+              <p>A unified, role-based platform bridging intake, repair tracking, and automated PDF invoicing.</p>
               <span class="read-more">Click Here &rarr;</span>
             </div>
           </a>
         </div>
+        </div>
       </section>
 
-      <section id="contact-section" class="section fade-in-up">
+      <section id="contact-section" class="section fade-in-up sticky-reveal" style="z-index: 4; background-color: var(--bg-secondary);">
+        <div class="sticky-reveal-inner">
         <div class="contact-container">
           <h2 class="section-title">Get in Touch</h2>
           <p class="contact-subtitle">
@@ -223,10 +248,11 @@
             </div>
           </div>
         </div>
+        </div>
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer sticky-footer" style="z-index: 5;">
       <div class="footer-content">
         <div class="footer-logo">Abinanth A</div>
         <p>&copy; 2026 Abinanth A. All rights reserved.</p>

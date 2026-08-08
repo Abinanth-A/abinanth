@@ -30,7 +30,7 @@ body.dark-theme {
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { font-size: 16px; }
 body { font-family: var(--font-body); background-color: var(--bg-ash); color: var(--text-graphite); line-height: 1.6; overflow-x: hidden; position: relative; }
 .bg-gradient-1, .bg-gradient-2 { display: none; }
 h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 500; line-height: 1.1; color: var(--text-graphite); }
@@ -126,11 +126,13 @@ a { text-decoration: none; color: inherit; transition: all var(--transition-fast
 /* Responsive */
 @media (max-width: 768px) {
   html { font-size: 14px; }
-  .hero-section { flex-direction: column; text-align: center; padding-top: 8rem; }
+  .hero-section { text-align: center; padding-top: 0; }
+  .hero-reveal-inner { flex-direction: column; padding: 6rem 1.5rem 3rem; gap: 2rem; }
   .hero-content { text-align: center; }
   .hero-quote { border-left: none; padding-left: 0; font-size: 1.2rem; }
   .hero-actions { justify-content: center; }
   .hero-image-container { width: 300px; height: 375px; }
+  #about-col-1 { border-right: none !important; border-bottom: var(--border-main); padding-right: 0 !important; padding-bottom: 2rem; }
   .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-secondary); flex-direction: column; padding: 2rem; border-bottom: var(--border-main); border-top: var(--border-main); }
   .nav-links.show { display: flex; }
   .mobile-menu-btn { display: block; }
@@ -146,4 +148,53 @@ a { text-decoration: none; color: inherit; transition: all var(--transition-fast
   .hero-actions .btn { width: 100%; }
   .section-title { font-size: 2.2rem; }
   .hero-image-container { width: 100%; height: 300px; }
+}
+
+/* Sticky Scroll Reveal */
+.sticky-reveal {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-ash);
+}
+
+.sticky-reveal.hero-section {
+  max-width: 100%;
+  margin: 0;
+  display: block;
+  padding: 0;
+}
+
+.hero-reveal-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 8rem 2rem 4rem;
+  min-height: 100vh;
+}
+
+.sticky-reveal.section {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.sticky-reveal-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+main > .sticky-reveal + .sticky-reveal {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.footer.sticky-footer {
+  position: relative;
+  margin-top: 0;
 }

@@ -10,7 +10,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         logtrixproject: resolve(__dirname, 'logtrixproject/index.html'),
-        onlinecalculator: resolve(__dirname, 'onlinecalculator/index.html')
+        onlinecalculator: resolve(__dirname, 'onlinecalculator/index.html'),
+        werkzatic: resolve(__dirname, 'werkzatic.html')
       }
     }
   }
