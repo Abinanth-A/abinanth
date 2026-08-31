@@ -24,11 +24,12 @@ const observerOptions = {
   threshold: 0.1
 };
 
-const observer = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+    } else {
+      entry.target.classList.remove('visible');
     }
   });
 }, observerOptions);
@@ -67,18 +68,17 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Trigger initial animations
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const heroElements = document.querySelectorAll('.hero-section.fade-in-up');
-    heroElements.forEach(el => el.classList.add('visible'));
-  }, 100);
-});
+// Trigger initial animations handled by IntersectionObserver on load
 
 // Contact Form submission via Web3Forms
 document.querySelectorAll('.contact-form').forEach(form => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);

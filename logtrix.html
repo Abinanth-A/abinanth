@@ -52,6 +52,15 @@
         }
       }
     </script>
+
+    <noscript>
+        <style>
+            .fade-in-up, .reveal, .stagger-card, .animate-fade-in-up {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
 </head>
 <body class="bg-ash text-graphite font-sans antialiased overflow-x-hidden selection:bg-accent-1 selection:text-inverse">
 
@@ -60,7 +69,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-4">
-                    <a href="https://abinanth.indevs.in/" class="font-bold text-2xl tracking-tight text-graphite hover:text-accent-1 transition-colors">Abinanth</a>
+                    <a href="/index.html" class="font-bold text-2xl tracking-tight text-graphite hover:text-accent-1 transition-colors">Abinanth</a>
                     <div class="hidden sm:block px-3 py-1 bg-ash border-2 border-graphite text-graphite text-sm font-bold shadow-hard-hover">
                         [ App: Logtrix ]
                     </div>
@@ -68,9 +77,9 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="https://abinanth.indevs.in/#home-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Home</a>
-                    <a href="https://abinanth.indevs.in/#project-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Projects</a>
-                    <a href="https://abinanth.indevs.in/#contact-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Contact me</a>
+                    <a href="/index.html#home-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Home</a>
+                    <a href="/index.html#project-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Projects</a>
+                    <a href="/index.html#contact-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Contact me</a>
                     <a href="#download" class="bg-transparent text-graphite px-5 py-2.5 font-medium border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:bg-graphite hover:text-inverse transition-all">Download APK</a>
                 </div>
 
@@ -86,9 +95,9 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-secondary border-b-2 border-graphite absolute w-full shadow-hard">
             <div class="px-4 pt-2 pb-6 space-y-4">
-                <a href="https://abinanth.indevs.in/#home-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Home</a>
-                <a href="https://abinanth.indevs.in/#project-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Projects</a>
-                <a href="https://abinanth.indevs.in/#contact-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Contact me</a>
+                <a href="/index.html#home-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Home</a>
+                <a href="/index.html#project-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Projects</a>
+                <a href="/index.html#contact-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Contact me</a>
                 <a href="#download" class="block px-3 py-3 mt-4 bg-transparent text-graphite font-medium text-center border-2 border-graphite shadow-hard active:translate-x-1 active:translate-y-1 active:shadow-none transition-all mobile-link">Download APK</a>
             </div>
         </div>
@@ -112,11 +121,11 @@
                             Digitize trip logs, automate expense tracking, and compute net earnings in real time — even fully offline.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-6 mt-10">
-                            <a href="#download" class="inline-flex justify-center items-center px-8 py-4 text-lg font-medium text-graphite bg-transparent border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:bg-accent-1 hover:text-inverse hover:border-accent-1 hover:shadow-none transition-all">
+                            <a href="#download" class="inline-flex w-full sm:w-auto justify-center items-center px-8 py-4 text-lg font-medium text-graphite bg-transparent border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:bg-accent-1 hover:text-inverse hover:border-accent-1 hover:shadow-none transition-all">
                                 Download APK
                                 <i data-lucide="arrow-down" class="ml-2 w-6 h-6"></i>
                             </a>
-                            <a href="#features" class="inline-flex justify-center items-center px-8 py-4 text-lg font-medium text-graphite bg-secondary border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:bg-graphite hover:text-inverse hover:shadow-none transition-all">
+                            <a href="#features" class="inline-flex w-full sm:w-auto justify-center items-center px-8 py-4 text-lg font-medium text-graphite bg-secondary border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:bg-graphite hover:text-inverse hover:shadow-none transition-all">
                                 Explore Features
                             </a>
                         </div>
@@ -297,7 +306,7 @@
                 </h2>
                 <div class="flex flex-wrap justify-center gap-8 reveal">
                     <!-- Flutter -->
-                    <div class="flex items-center gap-4 bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                    <div class="flex items-center gap-4 w-full sm:w-auto bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
                         <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14.314 0L2.3 12L5.671 15.371L21.057 0H14.314Z" fill="#00CCFF"/>
                             <path d="M14.314 24H21.057L10.971 13.914L7.6 17.286L14.314 24Z" fill="#00CCFF"/>
@@ -309,7 +318,7 @@
                         </div>
                     </div>
                     <!-- Riverpod -->
-                    <div class="flex items-center gap-4 bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                    <div class="flex items-center gap-4 w-full sm:w-auto bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
                         <i data-lucide="layers" class="w-12 h-12 text-graphite"></i>
                         <div class="text-left">
                             <div class="text-sm text-fog font-medium uppercase tracking-wider">State</div>
@@ -317,7 +326,7 @@
                         </div>
                     </div>
                     <!-- Isar -->
-                    <div class="flex items-center gap-4 bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                    <div class="flex items-center gap-4 w-full sm:w-auto bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
                         <i data-lucide="hard-drive" class="w-12 h-12 text-graphite"></i>
                         <div class="text-left">
                             <div class="text-sm text-fog font-medium uppercase tracking-wider">Local DB</div>
@@ -342,7 +351,7 @@
                     Download APK
                     <i data-lucide="download" class="ml-4 w-8 h-8"></i>
                 </a>
-                <p class="mt-8 text-sm font-medium text-graphite flex items-center justify-center gap-2 bg-secondary inline-block px-4 py-2 border-2 border-graphite shadow-hard-hover mx-auto">
+                <p class="mt-8 text-sm font-medium text-graphite inline-flex items-center justify-center gap-2 bg-secondary px-4 py-2 border-2 border-graphite shadow-hard-hover mx-auto">
                     <i data-lucide="info" class="w-5 h-5"></i>
                     Allow installation from unknown sources
                 </p>

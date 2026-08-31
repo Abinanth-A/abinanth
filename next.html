@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next | Widget-Native Todo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@1.25.0/dist/umd/lucide.min.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1B19' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 17h4V5H2v12h3'/%3E%3Cpath d='M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5'/%3E%3Cpath d='M14 17h1'/%3E%3Ccircle cx='7.5' cy='17.5' r='2.5'/%3E%3Ccircle cx='17.5' cy='17.5' r='2.5'/%3E%3C/svg%3E">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Link to the main site's style.css for exact theme tokens -->
+    <link rel="stylesheet" href="./style.css">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Outfit', 'sans-serif'],
+            },
+            colors: {
+              ash: 'var(--bg-ash)',
+              secondary: 'var(--bg-secondary)',
+              graphite: 'var(--text-graphite)',
+              fog: 'var(--text-fog)',
+              inverse: 'var(--text-inverse)',
+              accent: {
+                1: 'var(--accent-1)',
+                2: 'var(--accent-2)',
+                3: 'var(--accent-3)',
+                4: 'var(--accent-4)',
+              },
+            },
+            boxShadow: {
+              'hard': 'var(--shadow-hard)',
+              'hard-hover': 'var(--shadow-hard-hover)',
+            },
+            borderWidth: {
+              '2': '2px',
+              '4': '4px',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .stagger-card {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+      }
+      .stagger-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+
+    <noscript>
+        <style>
+            .fade-in-up, .reveal, .stagger-card, .animate-fade-in-up {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
+</head>
+<body class="bg-ash text-graphite font-sans antialiased overflow-x-hidden selection:bg-accent-1 selection:text-inverse">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-secondary z-50 border-b-2 border-graphite transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-4">
+                    <a href="/index.html" class="font-bold text-2xl tracking-tight text-graphite hover:text-accent-1 transition-colors">Abinanth</a>
+                    <div class="hidden sm:block px-3 py-1 bg-ash border-2 border-graphite text-graphite text-sm font-bold shadow-hard-hover">
+                        [ App: Next ]
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/index.html#home-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Home</a>
+                    <a href="/index.html#project-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Projects</a>
+                    <a href="/index.html#contact-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Contact me</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-graphite hover:text-accent-1 focus:outline-none p-2 border-2 border-transparent hover:border-graphite transition-all">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-secondary border-b-2 border-graphite absolute w-full shadow-hard">
+            <div class="px-4 pt-2 pb-6 space-y-4">
+                <a href="/index.html#home-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Home</a>
+                <a href="/index.html#project-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Projects</a>
+                <a href="/index.html#contact-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all mobile-link">Contact me</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="border-b-2 border-graphite bg-secondary">
+            
+            <!-- MOBILE LAYOUT (< 768px) -->
+            <div class="relative w-full aspect-[9/16] flex items-center justify-center overflow-hidden md:hidden">
+                <!-- Uncropped Background Video -->
+                <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-auto z-0 pointer-events-none opacity-50">
+                    <source src="/src/assets/next-hero-mobile-loop.mp4" type="video/mp4">
+                </video>
+                
+                <!-- Scrim for legibility -->
+                <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent z-0 pointer-events-none"></div>
+
+                <div class="relative z-10 text-center px-4 w-full flex flex-col items-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-ash border-2 border-graphite text-xs font-bold text-graphite mb-6 shadow-hard uppercase tracking-wide stagger-card">
+                        [ Actively building &mdash; in daily use ]
+                    </div>
+                    
+                    <h1 class="text-6xl font-bold tracking-tight text-graphite mb-4 leading-[1.1] stagger-card text-white">
+                        NEXT
+                    </h1>
+                    
+                    <p class="text-lg text-fog mb-8 font-medium max-w-sm mx-auto stagger-card bg-secondary/80 p-3 border-l-4 border-accent-1 backdrop-blur-sm shadow-hard">
+                        Just one thing, matched to your energy
+                    </p>
+                    
+                    <div class="flex justify-center w-full stagger-card">
+                        <a href="https://www.instagram.com/abinanth.4/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full justify-center items-center px-6 py-4 text-base font-medium text-graphite bg-accent-2 border-2 border-graphite shadow-hard hover:bg-graphite hover:text-inverse transition-colors">
+                            Instagram &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DESKTOP LAYOUT (>= 768px) -->
+            <div class="hidden md:block max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-24 lg:pt-32 lg:pb-32 relative">
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-8 items-center">
+                    <!-- Text Content -->
+                    <div class="stagger-card relative z-10">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-ash border-2 border-graphite text-sm font-bold text-graphite mb-8 shadow-hard-hover uppercase tracking-wide">
+                            [ Actively building &mdash; in daily use ]
+                        </div>
+                        
+                        <h1 class="text-7xl lg:text-9xl font-bold tracking-tight text-graphite mb-6 leading-[1.1]">
+                            NEXT
+                        </h1>
+                        
+                        <p class="text-2xl text-fog mb-10 font-medium max-w-lg border-l-4 border-accent-1 pl-4">
+                            Just one thing, matched to your energy
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-6 mt-10">
+                            <a href="https://www.instagram.com/abinanth.4/" target="_blank" rel="noopener noreferrer" class="inline-flex w-full sm:w-auto justify-center items-center px-8 py-4 text-lg font-medium text-graphite bg-accent-2 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:bg-graphite hover:text-inverse hover:shadow-none transition-all">
+                                Instagram &rarr;
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Framed Video Container -->
+                    <div class="relative flex items-center justify-center stagger-card z-0">
+                        <div class="relative w-full max-w-sm aspect-[9/16] bg-ash border-4 border-graphite shadow-hard flex flex-col overflow-hidden">
+                            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+                                <source src="/src/assets/next-hero.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-24 border-b-2 border-graphite bg-ash">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center stagger-card">
+                <p class="text-2xl md:text-3xl font-medium leading-relaxed border-2 border-graphite bg-secondary text-graphite p-8 shadow-hard">
+                    Next is a personal widget-native todo app built in Flutter with a native Android Glance widget. Instead of opening the app, you glance at your home screen widget, which surfaces one task matched to your current energy level (Low/Medium/High).
+                </p>
+            </div>
+        </section>
+
+        <!-- Onboarding showcase -->
+        <section class="py-24 bg-secondary border-b-2 border-graphite overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center stagger-card">
+                <h2 class="inline-block text-4xl font-bold mb-4 bg-ash text-graphite px-6 py-2 border-2 border-graphite shadow-hard uppercase">
+                    Onboarding
+                </h2>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Using flex overflow for horizontal scroll if it overflows -->
+                <div class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory onboarding-scroll">
+                    <div class="min-w-[280px] md:min-w-[320px] bg-ash border-2 border-graphite p-4 shadow-hard stagger-card snap-center shrink-0 hover:-translate-y-2 hover:shadow-hard-hover transition-all">
+                        <img src="/src/assets/welcome.png" alt="Welcome" class="w-full h-auto border-2 border-graphite">
+                    </div>
+                    <div class="min-w-[280px] md:min-w-[320px] bg-ash border-2 border-graphite p-4 shadow-hard stagger-card snap-center shrink-0 hover:-translate-y-2 hover:shadow-hard-hover transition-all" style="transition-delay: 100ms;">
+                        <img src="/src/assets/onboarding-add-tasks.png" alt="Add Tasks" class="w-full h-auto border-2 border-graphite">
+                    </div>
+                    <div class="min-w-[280px] md:min-w-[320px] bg-ash border-2 border-graphite p-4 shadow-hard stagger-card snap-center shrink-0 hover:-translate-y-2 hover:shadow-hard-hover transition-all" style="transition-delay: 200ms;">
+                        <img src="/src/assets/onboarding-add-widget.png" alt="Add Widget" class="w-full h-auto border-2 border-graphite">
+                    </div>
+                    <div class="min-w-[280px] md:min-w-[320px] bg-ash border-2 border-graphite p-4 shadow-hard stagger-card snap-center shrink-0 hover:-translate-y-2 hover:shadow-hard-hover transition-all" style="transition-delay: 300ms;">
+                        <img src="/src/assets/onboarding-permissions.png" alt="Permissions" class="w-full h-auto border-2 border-graphite">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core screens showcase -->
+        <section class="py-24 bg-ash border-b-2 border-graphite">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 stagger-card">
+                    <h2 class="inline-block text-4xl font-bold mb-4 bg-secondary text-graphite px-6 py-2 border-2 border-graphite shadow-hard uppercase">
+                        Core Screens
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+                    <div class="bg-secondary border-2 border-graphite p-4 shadow-hard stagger-card hover:-translate-y-2 hover:shadow-hard-hover transition-all">
+                        <img src="/src/assets/today-focus.png" alt="Today Focus" class="w-full h-auto border-2 border-graphite">
+                    </div>
+                    <div class="bg-secondary border-2 border-graphite p-4 shadow-hard stagger-card hover:-translate-y-2 hover:shadow-hard-hover transition-all" style="transition-delay: 100ms;">
+                        <img src="/src/assets/all-tasks.png" alt="All Tasks" class="w-full h-auto border-2 border-graphite">
+                    </div>
+                    <div class="bg-secondary border-2 border-graphite p-4 shadow-hard stagger-card hover:-translate-y-2 hover:shadow-hard-hover transition-all" style="transition-delay: 200ms;">
+                        <img src="/src/assets/task-detail.png" alt="Task Detail" class="w-full h-auto border-2 border-graphite">
+                    </div>
+                    <div class="bg-secondary border-2 border-graphite p-4 shadow-hard stagger-card hover:-translate-y-2 hover:shadow-hard-hover transition-all" style="transition-delay: 300ms;">
+                        <img src="/src/assets/settings.png" alt="Settings" class="w-full h-auto border-2 border-graphite">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section id="tech" class="py-24 border-b-2 border-graphite bg-secondary">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="inline-block text-3xl font-medium text-graphite mb-16 stagger-card border-b-4 border-accent-3 pb-2">
+                    Powered By
+                </h2>
+                <div class="flex flex-wrap justify-center gap-8 stagger-card">
+                    <!-- Frontend -->
+                    <div class="flex items-center gap-4 w-full sm:w-auto bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                        <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.314 0L2.3 12L5.671 15.371L21.057 0H14.314Z" fill="#00CCFF"/>
+                            <path d="M14.314 24H21.057L10.971 13.914L7.6 17.286L14.314 24Z" fill="#00CCFF"/>
+                            <path d="M10.971 13.914L14.314 10.571L21.057 10.571L17.714 13.914L10.971 13.914Z" fill="#1C1B19"/>
+                        </svg>
+                        <div class="text-left">
+                            <div class="text-sm text-fog font-medium uppercase tracking-wider">Frontend</div>
+                            <div class="font-medium text-graphite text-2xl">Flutter</div>
+                        </div>
+                    </div>
+                    <!-- Widget -->
+                    <div class="flex items-center gap-4 w-full sm:w-auto bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                        <i data-lucide="layout-template" class="w-12 h-12 text-graphite"></i>
+                        <div class="text-left">
+                            <div class="text-sm text-fog font-medium uppercase tracking-wider">Widget</div>
+                            <div class="font-medium text-graphite text-2xl">Native Android Glance</div>
+                        </div>
+                    </div>
+                    <!-- Bridge -->
+                    <div class="flex items-center gap-4 w-full sm:w-auto bg-ash px-8 py-5 border-2 border-graphite shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-default">
+                        <i data-lucide="arrow-left-right" class="w-12 h-12 text-graphite"></i>
+                        <div class="text-left">
+                            <div class="text-sm text-fog font-medium uppercase tracking-wider">Bridge</div>
+                            <div class="font-medium text-graphite text-2xl">MethodChannel</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-ash py-12 border-t-2 border-graphite">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-secondary border-2 border-graphite flex items-center justify-center shadow-hard-hover">
+                    <i data-lucide="check-square" class="w-6 h-6 text-graphite"></i>
+                </div>
+                <span class="font-medium text-2xl text-graphite tracking-wide">Next</span>
+            </div>
+            
+            <div class="text-center md:text-right font-normal text-fog">
+                <p class="mb-2">Next &copy; 2026 Abinanth A. All rights reserved.</p>
+                <p class="text-sm">
+                    Developed by <a href="https://abinanth.indevs.in" target="_blank" rel="noopener noreferrer" class="text-graphite hover:!text-accent-1 transition-colors font-medium">Abinanth A</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+      // Initialize Lucide Icons
+      if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+      }
+
+      // Mobile Menu Toggle
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      if(btn && menu) {
+          btn.addEventListener('click', () => {
+              menu.classList.toggle('hidden');
+          });
+      }
+
+      // --- STAGGERED POP-INS LOGIC ---
+      const staggerCards = document.querySelectorAll('.stagger-card');
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+              }
+          });
+      }, {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
+      });
+
+      staggerCards.forEach(card => observer.observe(card));
+    </script>
+    <script type="module">import './smooth-scroll.js';</script>
+
+    <script>
+    (() => {
+
+      // --- DRAG TO SCROLL FOR ONBOARDING ---
+      const slider = document.querySelector('.onboarding-scroll');
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      if(slider) {
+          slider.addEventListener('mousedown', (e) => {
+              isDown = true;
+              slider.style.scrollSnapType = 'none'; // Disable snapping while dragging
+              slider.style.cursor = 'grabbing';
+              startX = e.pageX - slider.offsetLeft;
+              scrollLeft = slider.scrollLeft;
+          });
+          slider.addEventListener('mouseleave', () => {
+              isDown = false;
+              slider.style.scrollSnapType = ''; 
+              slider.style.cursor = '';
+          });
+          slider.addEventListener('mouseup', () => {
+              isDown = false;
+              slider.style.scrollSnapType = ''; 
+              slider.style.cursor = '';
+          });
+          slider.addEventListener('mousemove', (e) => {
+              if (!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - slider.offsetLeft;
+              const walk = (x - startX) * 2; // scroll-fast multiplier
+              slider.scrollLeft = scrollLeft - walk;
+          });
+      }
+    })();
+    </script>
+</body>
+
+</html>

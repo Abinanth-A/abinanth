@@ -67,6 +67,15 @@
         transform: translateY(0);
       }
     </style>
+
+    <noscript>
+        <style>
+            .fade-in-up, .reveal, .stagger-card, .animate-fade-in-up {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
 </head>
 <body class="bg-ash text-graphite font-sans antialiased overflow-x-hidden selection:bg-accent-1 selection:text-inverse">
 
@@ -92,7 +101,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-4">
-                    <a href="https://abinanth.indevs.in/" class="font-bold text-2xl tracking-tight text-graphite hover:text-accent-1 transition-colors">Abinanth</a>
+                    <a href="/index.html" class="font-bold text-2xl tracking-tight text-graphite hover:text-accent-1 transition-colors">Abinanth</a>
                     <div class="hidden sm:block px-3 py-1 bg-ash border-2 border-graphite text-graphite text-sm font-bold shadow-hard-hover">
                         [ App: Werkzatic Automotives ]
                     </div>
@@ -100,9 +109,9 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="https://abinanth.indevs.in/#home-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Home</a>
-                    <a href="https://abinanth.indevs.in/#project-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Projects</a>
-                    <a href="https://abinanth.indevs.in/#contact-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Contact me</a>
+                    <a href="/index.html#home-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Home</a>
+                    <a href="/index.html#project-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Projects</a>
+                    <a href="/index.html#contact-section" class="text-graphite hover:text-accent-1 font-medium transition-colors">Contact me</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -117,9 +126,9 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-secondary border-b-2 border-graphite absolute w-full shadow-hard">
             <div class="px-4 pt-2 pb-6 space-y-4">
-                <a href="https://abinanth.indevs.in/#home-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all">Home</a>
-                <a href="https://abinanth.indevs.in/#project-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all">Projects</a>
-                <a href="https://abinanth.indevs.in/#contact-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all">Contact me</a>
+                <a href="/index.html#home-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all">Home</a>
+                <a href="/index.html#project-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all">Projects</a>
+                <a href="/index.html#contact-section" class="block px-3 py-2 text-graphite font-medium border-2 border-transparent hover:border-graphite hover:bg-ash transition-all">Contact me</a>
             </div>
         </div>
     </nav>
@@ -302,7 +311,7 @@
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="bg-ash border-2 border-graphite p-8 flex flex-col items-center text-center shadow-hard stagger-card hover:-translate-y-2 hover:shadow-hard-hover transition-all">
                             <svg class="w-12 h-12 mb-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Flutter</title><path fill="#02569B" d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/></svg>
                             <h4 class="font-bold text-xl">Flutter</h4>
@@ -475,6 +484,8 @@
           entries.forEach(entry => {
               if (entry.isIntersecting) {
                   entry.target.classList.add('visible');
+              } else {
+                  entry.target.classList.remove('visible');
               }
           });
       }, {

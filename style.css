@@ -30,8 +30,8 @@ body.dark-theme {
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { font-size: 16px; }
-body { font-family: var(--font-body); background-color: var(--bg-ash); color: var(--text-graphite); line-height: 1.6; overflow-x: hidden; position: relative; }
+html { font-size: 16px; overflow-x: clip; }
+body { font-family: var(--font-body); background-color: var(--bg-ash); color: var(--text-graphite); line-height: 1.6; overflow-x: clip; position: relative; }
 .bg-gradient-1, .bg-gradient-2 { display: none; }
 h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 500; line-height: 1.1; color: var(--text-graphite); }
 a { text-decoration: none; color: inherit; transition: all var(--transition-fast); }
@@ -101,6 +101,7 @@ a { text-decoration: none; color: inherit; transition: all var(--transition-fast
 .form-group { margin-bottom: 1.5rem; }
 .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--text-graphite); }
 .form-group input, .form-group textarea { width: 100%; padding: 1rem; background: var(--bg-ash); border: var(--border-main); color: var(--text-graphite); font-family: inherit; font-size: 1.1rem; font-weight: 400; transition: all var(--transition-fast); box-shadow: var(--shadow-hard-hover); }
+.form-group textarea { resize: vertical; }
 .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-1); box-shadow: none; transform: translate(4px, 4px); }
 .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-fog); opacity: 0.8; }
 .btn-submit { width: 100%; background: transparent; color: var(--text-graphite); margin-top: 1rem; border: var(--border-main); cursor: pointer; font-weight: 500; box-shadow: var(--shadow-hard); }
@@ -148,6 +149,8 @@ a { text-decoration: none; color: inherit; transition: all var(--transition-fast
   .hero-actions .btn { width: 100%; }
   .section-title { font-size: 2.2rem; }
   .hero-image-container { width: 100%; height: 300px; }
+  .contact-form { padding: 1.5rem; }
+  .direct-email { font-size: 1.2rem; word-break: break-all; }
 }
 
 /* Sticky Scroll Reveal */
@@ -197,4 +200,12 @@ main > .sticky-reveal + .sticky-reveal {
 .footer.sticky-footer {
   position: relative;
   margin-top: 0;
+}
+
+.onboarding-scroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.onboarding-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Brave */
 }

@@ -16,7 +16,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
-  </head>
+  
+    <noscript>
+        <style>
+            .fade-in-up, .reveal, .stagger-card, .animate-fade-in-up {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
+</head>
   <body>
     <div class="bg-gradient-1"></div>
     <div class="bg-gradient-2"></div>
@@ -76,6 +85,8 @@
               alt="Abinanth A in Kashmir"
               class="hero-image"
               id="profile-img"
+              width="400"
+              height="500"
             />
             <div class="image-glow"></div>
           </div>
@@ -166,6 +177,38 @@
               <h3>Werkzatic Automotives</h3>
               <p>A unified, role-based platform bridging intake, repair tracking, and automated PDF invoicing.</p>
               <span class="read-more">Click Here &rarr;</span>
+            </div>
+          </a>
+        </div>
+        </div>
+      </section>
+
+      <section id="building-section" class="section fade-in-up sticky-reveal" style="z-index: 3; background-color: var(--bg-ash); border-top: var(--border-main);">
+        <div class="sticky-reveal-inner">
+        <h2 class="section-title">Currently Building</h2>
+        <div class="projects-grid">
+          <a href="/next.html" class="project-card" style="border-style: dashed; position: relative;">
+            <div style="position: absolute; top: -12px; right: 20px; background: var(--accent-2); border: var(--border-main); padding: 0.25rem 0.75rem; font-size: 0.8rem; font-weight: 600; box-shadow: var(--shadow-hard-hover); text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-graphite);">
+              Actively building &mdash; in daily use
+            </div>
+            <div class="project-icon" style="border-style: dashed;">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="project-info">
+              <h3>Next</h3>
+              <p>A todo app that matches the task to your energy, not the other way around.</p>
+              <span class="read-more">Follow the build &rarr;</span>
             </div>
           </a>
         </div>
